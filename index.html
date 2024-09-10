@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
+    <script src="calculator.js" defer></script>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <main>
+        <section id="calculator" class="calculator">
+            <header class="top_bar">
+                <div class="icon_text">
+                    <img class="icon_header" src="./assets/Windows_Calculator_icon.png" alt="Windows Calulator">
+                    <p class="name">Rekenmachine</p>
+                </div class="icons_header">
+                <div class="icons">
+                    <div id="minus_action" class="min">
+                        <span></span>
+                    </div>
+                    <div id="square_action" class="square">
+                        <span></span>
+                    </div>
+                    <div id="cross_action" class="cross">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="calculator_output">
+                <p id="calculator_text">0</p>
+            </div>
+
+            <div class="calculator_buttons">
+                <button id="input_numbers" onclick="number('7')">7</button>
+                <button id="input_numbers" onclick="number('8')">8</button>
+                <button id="input_numbers" onclick="number('9')">9</button>
+                <button id="input_numbers" onclick="number('*')">x</button>
+                <button id="input_numbers" onclick="number('4')">4</button>
+                <button id="input_numbers" onclick="number('5')">5</button>
+                <button id="input_numbers" onclick="number('6')">6</button>
+                <button id="input_numbers" onclick="number('-')">-</button>
+                <button id="input_numbers" onclick="number('1')">1</button>
+                <button id="input_numbers" onclick="number('2')">2</button>
+                <button id="input_numbers" onclick="number('3')">3</button>
+                <button id="input_numbers" onclick="number('+')">+</button>
+                <button id="input_numbers" onclick="removeCalculation();">C</button>
+                <button id="input_numbers" onclick="number('0')">0</button>
+                <button id="input_numbers" onclick="number(',')">,</button>
+                <button id="input_numbers" onclick="calculate()" class="pink">=</button>
+            </div>
+        </section>
+
+        <section id="calculator_removed" class="hide">
+            <h2>WHY???</h2>
+            <p>Here is a gif</p>
+            <iframe src="https://giphy.com/embed/l2Jhok92mZ2PZHjDG" width="480" height="254" frameBorder="0"
+                class="giphy-embed" allowFullScreen></iframe>
+            <button id="open_calculator">Open Calculator</button>
+        </section>
+    </main>
+
 
 
 </body>
+
 </html>
