@@ -3,79 +3,93 @@
   src: url("./assets/fonts/Segoe\ UI.ttf");
 }
 
+:root {
+  --backgroundGray: #2e3437;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Segoe";
 }
 
 main {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 .calculator {
   border: 1px solid gray;
-  width: 500px;
-  height: 800px;
-  border-radius: 15px;
-  padding: 4px;
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
   background: #202d30;
   background: linear-gradient(261deg, #202d30 0%, rgba(32, 36, 37, 1) 100%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: 0.4s ease-out;
-
+  overflow: hidden;
+  user-select: none;
 }
 
 /* Actions */
 .hide {
-    display: none!important;
+  display: none !important;
 }
 
 .fullWidth {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 0;
-    transition: 0.4s ease-in;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  transition: 0.4s ease-in;
 }
 
 /* Joke */
 #calculator_removed {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 #calculator_removed button {
-    border:none;
-    font-weight: 700;
-    padding:20px 30px;
-    border-radius: 5px;
-    background-color: #db9ee5;
-    color: white;
+  border: none;
+  font-weight: 700;
+  padding: 20px 30px;
+  border-radius: 5px;
+  background-color: #db9ee5;
+  color: white;
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: 900;
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 /* Header */
-header {
-  padding: 10px 20px;
-}
 
 header.top_bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: move;
 }
 
 .icon_text {
@@ -85,6 +99,8 @@ header.top_bar {
 }
 .icon_header {
   width: 20px;
+  height: 20px;
+  margin-left: 20px;
 }
 
 .name {
@@ -94,7 +110,6 @@ header.top_bar {
 .icons {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .icons_header {
@@ -103,11 +118,34 @@ header.top_bar {
   gap: 30px;
 }
 
+.min {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .min span {
   display: flex;
   width: 10px;
   height: 1px;
   background-color: white;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.square:hover,
+.min:hover {
+  background-color: var(--backgroundGray);
 }
 
 .square span {
@@ -119,11 +157,17 @@ header.top_bar {
 }
 
 .cross {
-  display: flex;
   position: relative;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  width: 15px;
-  height: 20px;
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.cross:hover {
+  background-color: red !important;
 }
 
 .cross span:first-child {
@@ -143,11 +187,11 @@ header.top_bar {
 }
 /* Calculator output */
 .calculator_output p {
-    color: white;
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: right;
-    margin: 0 20px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: right;
+  margin: 0 20px;
 }
 
 /* Calculator buttons */
@@ -156,10 +200,11 @@ header.top_bar {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 2px;
+  padding: 4px;
 }
 
 .calculator_buttons button {
-  height: 80px;
+  height: 60px;
   border-radius: 5px;
   background-color: #373d3f;
   border: none;
@@ -169,23 +214,23 @@ header.top_bar {
 }
 
 .calculator_buttons button:hover {
-  background-color: #2e3437;
+  background-color: var(--backgroundGray);
 }
 
 .calculator_buttons button:nth-child(-n + 8),
 .calculator_buttons button:nth-child(4n + 4) {
-  background-color: #2e3437;
+  background-color: var(--backgroundGray);
 }
 
 .calculator_buttons button:nth-child(-n + 8):hover,
 .calculator_buttons button:nth-child(4n + 4):hover {
-  background-color: #373d3f;
+  background-color: var(--backgroundGray);
 }
 
 .pink {
   background-color: #db9ee5 !important;
-  color: #373d3f !important;
-  font-size: 1.8rem!important;
+  color: var(--backgroundGray) !important;
+  font-size: 1.8rem !important;
 }
 
 .pink:hover {

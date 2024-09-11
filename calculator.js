@@ -22,26 +22,27 @@ increaseWindow.onclick = () => container.classList.toggle("fullWidth");
 
 // Start code for calculator
 let currentInput = "";
+let resultDisplayed = false;
 
 function number(val) {
+  if (resultDisplayed) {
+    currentInput = "";
+    resultDisplayed = false;
+  }
+
   currentInput += val;
 
   document.getElementById("calculator_text").innerHTML = currentInput;
 }
 
-
 function removeCalculation() {
-    document.getElementById("calculator_text").innerHTML = 0;
-    currentInput = "";
+  document.getElementById("calculator_text").innerHTML = 0;
+  currentInput = "";
 }
 
 function calculate() {
-        // Evaluate the expression
-        let result = eval(currentInput);
-
-        // Update the display with the result
-        document.getElementById("calculator_text").innerHTML = result;
-
-        // Reset the currentInput to the result for further calculations
-        currentInput = result;
+  let result = eval(currentInput);
+  document.getElementById("calculator_text").innerHTML = result;
+  currentInput = result;
+  resultDisplayed = true;
 }
